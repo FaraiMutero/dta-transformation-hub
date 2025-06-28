@@ -5,8 +5,48 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Mail, Phone } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { useToast } from '@/hooks/use-toast';
+
+interface ContactFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  organization: string;
+  message: string;
+}
 
 const Contact = () => {
+  const { toast } = useToast();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<ContactFormData>();
+
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      // Simulate form submission delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      console.log('Form submitted:', data);
+      
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+      
+      reset();
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-900">
       <Header />
@@ -25,31 +65,77 @@ const Contact = () => {
               {/* Contact Form */}
               <div className="bg-slate-800 rounded-xl p-8">
                 <h2 className="text-2xl font-bold text-white mb-6">Send us a message</h2>
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">First Name</label>
-                      <Input className="bg-slate-700 border-slate-600 text-white" />
+                      <label className="block text-sm font-medium text-slate-300 mb-2">
+                        First Name *
+                      </label>
+                      <Input 
+                        {...register('firstName', { required: 'First name is required' })}
+                        className="bg-slate-700 border-slate-600 text-white" 
+                      />
+                      {errors.firstName && (
+                        <p className="text-red-400 text-sm mt-1">{errors.firstName.message}</p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">Last Name</label>
-                      <Input className="bg-slate-700 border-slate-600 text-white" />
+                      <label className="block text-sm font-medium text-slate-300 mb-2">
+                        Last Name *
+                      </label>
+                      <Input 
+                        {...register('lastName', { required: 'Last name is required' })}
+                        className="bg-slate-700 border-slate-600 text-white" 
+                      />
+                      {errors.lastName && (
+                        <p className="text-red-400 text-sm mt-1">{errors.lastName.message}</p>
+                      )}
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Email</label>
-                    <Input type="email" className="bg-slate-700 border-slate-600 text-white" />
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Email *
+                    </label>
+                    <Input 
+                      type="email" 
+                      {...register('email', { 
+                        required: 'Email is required',
+                        pattern: {
+                          value: /^\S+@\S+$/i,
+                          message: 'Please enter a valid email address'
+                        }
+                      })}
+                      className="bg-slate-700 border-slate-600 text-white" 
+                    />
+                    {errors.email && (
+                      <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-300 mb-2">Organization</label>
-                    <Input className="bg-slate-700 border-slate-600 text-white" />
+                    <Input 
+                      {...register('organization')}
+                      className="bg-slate-700 border-slate-600 text-white" 
+                    />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Message</label>
-                    <Textarea className="bg-slate-700 border-slate-600 text-white h-32" />
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Message *
+                    </label>
+                    <Textarea 
+                      {...register('message', { required: 'Message is required' })}
+                      className="bg-slate-700 border-slate-600 text-white h-32" 
+                    />
+                    {errors.message && (
+                      <p className="text-red-400 text-sm mt-1">{errors.message.message}</p>
+                    )}
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white">
-                    Send Message
+                  <Button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </div>
