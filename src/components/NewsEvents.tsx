@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Calendar, Clock } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 
 const NewsEvents = () => {
   const newsItems = [
@@ -31,27 +31,6 @@ const NewsEvents = () => {
     }
   ];
 
-  const upcomingEvents = [
-    {
-      date: '2024-07-15',
-      title: 'Digital Africa Summit 2024',
-      location: 'Kigali, Rwanda',
-      type: 'Conference'
-    },
-    {
-      date: '2024-08-20',
-      title: 'DPI Implementation Workshop',
-      location: 'Lagos, Nigeria',
-      type: 'Workshop'
-    },
-    {
-      date: '2024-09-10',
-      title: 'Cybersecurity Policy Forum',
-      location: 'Cape Town, South Africa',
-      type: 'Forum'
-    }
-  ];
-
   return (
     <section className="py-24 bg-slate-800">
       <div className="container mx-auto px-6">
@@ -66,109 +45,70 @@ const NewsEvents = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* News Section */}
-          <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-              <div className="w-1 h-8 bg-gradient-to-b from-orange-400 to-amber-300 rounded-full mr-4"></div>
-              Latest News
-            </h3>
-            
-            <div className="space-y-8">
-              {newsItems.map((item, index) => (
-                <article key={index} className="group">
-                  <div className="bg-gradient-to-br from-slate-700 to-slate-600 rounded-2xl overflow-hidden hover:from-slate-600 hover:to-slate-500 transition-all duration-300 transform group-hover:scale-[1.02]">
-                    <div className="md:flex">
-                      <div className="md:w-1/3">
-                        <img 
-                          src={item.image} 
-                          alt={item.title}
-                          className="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                      <div className="md:w-2/3 p-6">
-                        <div className="flex items-center mb-3">
-                          <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                            {item.category}
-                          </span>
-                          <div className="flex items-center text-slate-400 text-sm ml-4">
-                            <Clock className="h-4 w-4 mr-1" />
-                            {item.readTime}
-                          </div>
-                        </div>
-                        
-                        <h4 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-amber-300 group-hover:bg-clip-text transition-all duration-300">
-                          {item.title}
-                        </h4>
-                        
-                        <p className="text-slate-300 mb-4 leading-relaxed">
-                          {item.excerpt}
-                        </p>
-                        
-                        <div className="flex items-center justify-between">
-                          <span className="text-slate-400 text-sm">
-                            {new Date(item.date).toLocaleDateString('en-US', { 
-                              year: 'numeric', 
-                              month: 'long', 
-                              day: 'numeric' 
-                            })}
-                          </span>
-                          <div className="flex items-center text-orange-400 font-semibold group-hover:text-amber-300 transition-colors duration-300">
-                            <span className="mr-2">Read More</span>
-                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                          </div>
-                        </div>
-                      </div>
+        {/* News Section */}
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
+            <div className="w-1 h-8 bg-gradient-to-b from-orange-400 to-amber-300 rounded-full mr-4"></div>
+            Latest News
+          </h3>
+          
+          <div className="space-y-8">
+            {newsItems.map((item, index) => (
+              <article key={index} className="group">
+                <div className="bg-gradient-to-br from-slate-700 to-slate-600 rounded-2xl overflow-hidden hover:from-slate-600 hover:to-slate-500 transition-all duration-300 transform group-hover:scale-[1.02]">
+                  <div className="md:flex">
+                    <div className="md:w-1/3">
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          {/* Events Section */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-              <div className="w-1 h-8 bg-gradient-to-b from-green-400 to-blue-400 rounded-full mr-4"></div>
-              Upcoming Events
-            </h3>
-            
-            <div className="space-y-6">
-              {upcomingEvents.map((event, index) => (
-                <div key={index} className="group">
-                  <div className="bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl p-6 hover:from-slate-600 hover:to-slate-500 transition-all duration-300 transform group-hover:scale-105">
-                    <div className="flex items-start mb-4">
-                      <div className="bg-gradient-to-r from-green-500 to-blue-500 rounded-lg p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
-                        <Calendar className="h-6 w-6 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <span className="text-green-400 text-sm font-semibold">
-                          {event.type}
+                    <div className="md:w-2/3 p-6">
+                      <div className="flex items-center mb-3">
+                        <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                          {item.category}
                         </span>
-                        <h4 className="text-lg font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-blue-400 group-hover:bg-clip-text transition-all duration-300">
-                          {event.title}
-                        </h4>
+                        <div className="flex items-center text-slate-400 text-sm ml-4">
+                          <Clock className="h-4 w-4 mr-1" />
+                          {item.readTime}
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="text-slate-300 text-sm space-y-1">
-                      <div>📍 {event.location}</div>
-                      <div>📅 {new Date(event.date).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                      })}</div>
+                      
+                      <h4 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-amber-300 group-hover:bg-clip-text transition-all duration-300">
+                        {item.title}
+                      </h4>
+                      
+                      <p className="text-slate-300 mb-4 leading-relaxed">
+                        {item.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-slate-400 text-sm">
+                          {new Date(item.date).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                          })}
+                        </span>
+                        <div className="flex items-center text-orange-400 font-semibold group-hover:text-amber-300 transition-colors duration-300">
+                          <span className="mr-2">Read More</span>
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </article>
+            ))}
+          </div>
 
+          <div className="text-center mt-12">
             <Button 
               variant="outline" 
-              className="w-full mt-8 border-slate-600 text-white hover:bg-slate-700 transition-all duration-300"
+              className="border-slate-600 text-white hover:bg-slate-700 transition-all duration-300"
             >
-              View All Events
+              View All News
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
