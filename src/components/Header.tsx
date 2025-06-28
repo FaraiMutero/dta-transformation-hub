@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -21,7 +22,7 @@ const Header = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <div className="text-2xl font-bold text-white">
               <span className="text-transparent bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text">
                 DTA
@@ -30,33 +31,39 @@ const Header = () => {
             <div className="ml-2 text-white text-sm font-medium hidden sm:block">
               Digital Transformation Africa
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <NavigationMenu className="hidden lg:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Home
-                </NavigationMenuLink>
+                <Link to="/">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Home
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
               
               <NavigationMenuItem>
                 <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-4 w-[400px]">
-                    <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                      <div className="text-sm font-medium leading-none">Our Mission</div>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Leading Africa's digital transformation
-                      </p>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                      <div className="text-sm font-medium leading-none">Leadership</div>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Meet our expert team
-                      </p>
-                    </NavigationMenuLink>
+                    <Link to="/about">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Our Mission</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Leading Africa's digital transformation
+                        </p>
+                      </NavigationMenuLink>
+                    </Link>
+                    <Link to="/about">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Leadership</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Meet our expert team
+                        </p>
+                      </NavigationMenuLink>
+                    </Link>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -65,59 +72,75 @@ const Header = () => {
                 <NavigationMenuTrigger>Our Work</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-4 w-[500px] grid-cols-2">
-                    <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                      <div className="text-sm font-medium leading-none">Digital ID</div>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        National identity systems
-                      </p>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                      <div className="text-sm font-medium leading-none">E-Government</div>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Digital government services
-                      </p>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                      <div className="text-sm font-medium leading-none">DPI</div>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Digital Public Infrastructure
-                      </p>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                      <div className="text-sm font-medium leading-none">Interoperability</div>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        System integration solutions
-                      </p>
-                    </NavigationMenuLink>
+                    <Link to="/our-work">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Digital ID</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          National identity systems
+                        </p>
+                      </NavigationMenuLink>
+                    </Link>
+                    <Link to="/our-work">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">E-Government</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Digital government services
+                        </p>
+                      </NavigationMenuLink>
+                    </Link>
+                    <Link to="/our-work">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">DPI</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Digital Public Infrastructure
+                        </p>
+                      </NavigationMenuLink>
+                    </Link>
+                    <Link to="/our-work">
+                      <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Interoperability</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          System integration solutions
+                        </p>
+                      </NavigationMenuLink>
+                    </Link>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Resources
-                </NavigationMenuLink>
+                <Link to="/resources">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Resources
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  News & Events
-                </NavigationMenuLink>
+                <Link to="/news-events">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    News & Events
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Contact
-                </NavigationMenuLink>
+                <Link to="/contact">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Contact
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
           {/* CTA Button */}
           <div className="hidden lg:flex">
-            <Button className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white">
-              Get Started
-            </Button>
+            <Link to="/contact">
+              <Button className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -135,28 +158,30 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-slate-700/50">
             <nav className="flex flex-col space-y-2">
-              <a href="#" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
+              <Link to="/" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
                 Home
-              </a>
-              <a href="#" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
+              </Link>
+              <Link to="/about" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
                 About Us
-              </a>
-              <a href="#" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
+              </Link>
+              <Link to="/our-work" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
                 Our Work
-              </a>
-              <a href="#" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
+              </Link>
+              <Link to="/resources" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
                 Resources
-              </a>
-              <a href="#" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
+              </Link>
+              <Link to="/news-events" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
                 News & Events
-              </a>
-              <a href="#" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
+              </Link>
+              <Link to="/contact" className="text-white hover:text-orange-400 px-3 py-2 rounded-md transition-colors">
                 Contact
-              </a>
+              </Link>
               <div className="pt-2">
-                <Button className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white">
-                  Get Started
-                </Button>
+                <Link to="/contact">
+                  <Button className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>
