@@ -43,7 +43,7 @@ const Header = () => {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              
+
               <NavigationMenuItem>
                 <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -56,14 +56,14 @@ const Header = () => {
                         </p>
                       </NavigationMenuLink>
                     </Link>
-                    <Link to="/about">
+                    {/*  <Link to="/about">
                       <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">Leadership</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                           Meet our expert team
                         </p>
                       </NavigationMenuLink>
-                    </Link>
+                    </Link> */}
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -107,7 +107,6 @@ const Header = () => {
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-
               <NavigationMenuItem>
                 <Link to="/resources">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -115,8 +114,7 @@ const Header = () => {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-
-              <NavigationMenuItem>
+               <NavigationMenuItem>
                 <Link to="/news-events">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     News & Events
@@ -124,13 +122,14 @@ const Header = () => {
                 </Link>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
+              {/*<NavigationMenuItem>
                 <Link to="/contact">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Contact
                   </NavigationMenuLink>
                 </Link>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
+
             </NavigationMenuList>
           </NavigationMenu>
 
@@ -138,7 +137,7 @@ const Header = () => {
           <div className="hidden lg:flex">
             <Link to="/contact">
               <Button className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white">
-                Get Started
+                Contact Us
               </Button>
             </Link>
           </div>

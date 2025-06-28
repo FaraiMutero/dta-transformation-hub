@@ -26,9 +26,17 @@ const About = () => {
                 <p className="text-slate-300 leading-relaxed">
                   To create a digitally connected Africa where every citizen has access to efficient, transparent, and inclusive digital services that enhance their quality of life and contribute to the continent's prosperity.
                 </p>
+                <br/>
+                <p className="text-slate-300 leading-relaxed">
+                By adhering to GovStack's modular approach and other e-government frameworks, DTA enables governments to design systems that prioritize interoperability, scalability, and affordability. This ensures that digital services can be tailored to meet the unique needs of different regions, without the constraints of legacy systems. Through deploying foundational building blocks, such as digital identity, payment systems, and registries, DTA helps governments create robust platforms that streamline administrative processes and enhance service delivery.
+                </p>
+                <br/>
+                <p className="text-slate-300 leading-relaxed">
+                At the heart of DTA’s vision lies the belief that technology is a powerful equalizer, capable of bridging gaps in access to education, healthcare, and economic opportunities. By partnering with local governments, international organizations, and private institutions, DTA envisions creating ecosystems where digital services transcend boundaries and deliver meaningful impact to even the most remote communities.
+                </p>
               </div>
 
-              <div className="bg-slate-800 rounded-xl p-8">
+              <div className="bg-slate-800 rounded-xl p-8" style={{ display: 'none' }}>
                 <h2 className="text-2xl font-bold text-white mb-4">Leadership Team</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-slate-700 rounded-lg p-6">

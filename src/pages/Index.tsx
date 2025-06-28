@@ -6,6 +6,7 @@ import ServicesOverview from '../components/ServicesOverview';
 import NewsEvents from '../components/NewsEvents';
 import Partners from '../components/Partners';
 import Stats from '../components/Stats';
+import Footer from '../components/Footer';
 
 const Index = () => {
   return (
@@ -14,9 +15,9 @@ const Index = () => {
       <Hero />
       <Stats />
       <ServicesOverview />
-      <NewsEvents />
       <Partners />
-    </div>
+      <Footer />
+    </div>  
   );
 };
 
